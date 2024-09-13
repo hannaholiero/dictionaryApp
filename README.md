@@ -24,5 +24,5 @@ Följ stegen nedan för att klona och köra projektet lokalt:
 
 1. **Kloning av repository**:
    ```bash
-   git clone https://github.com/yourusername/hannahs-dictionary.git
-   cd hannahs-dictionary
+   git clone https://github.com/hannaholiero/dictionaryApp.git
+   cd dictionaryApp
