@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // Målnivå för JavaScript
+    "module": "esnext", // Typ av modulsystem
+    "jsx": "react-jsx", // Viktig inställning som gör att TypeScript kan hantera JSX
+    "strict": true, // Aktiverar strikta typkontroller
+    "esModuleInterop": true, // Gör det möjligt att importera CommonJS-moduler
+    "skipLibCheck": true, // Hoppar över kontroll av typdeklarationsfiler
+    "forceConsistentCasingInFileNames": true, // Konsekvent namnstandard för filer
+    "moduleResolution": "node", // Hur moduler ska lösas upp
+    "resolveJsonModule": true, // Tillåter import av JSON-filer
+    "isolatedModules": true, // Krävs för Vite-projekt
+    "noEmit": true, // Hindrar TypeScript från att generera filer
+    "types": ["node", "jest", "@testing-library/jest-dom", "vitest"] // Lägg till jest här
+  },
+  "include": ["src", "**/*.test.tsx"]
+}
