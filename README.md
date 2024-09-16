@@ -10,7 +10,7 @@
 
 ## 🛠️ Tekniker
 
-- **React & TypeScript**: Skalbart frontend.
+- **React & TypeScript**: Skalbar frontend.
 - **Tailwind CSS**: Snabb och responsiv styling.
 - **MSW (Mock Service Worker)**: Mockade API-anrop i tester.
 - **React Testing Library & Vitest**: Enhetstester.
