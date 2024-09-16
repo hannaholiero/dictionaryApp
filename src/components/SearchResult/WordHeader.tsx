@@ -1,5 +1,5 @@
-import React from 'react';
-import FavoriteIcon from '../Favorites/FavoriteIcon';
+import React from "react";
+import FavoriteIcon from "../Favorites/FavoriteIcon";
 
 // Visar ordets rubrik med uttal och favoritfunktionalitet
 // Hanterar lägg till/ta bort från favoriter och visar ordets namn och fonetik

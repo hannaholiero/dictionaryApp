@@ -1,11 +1,11 @@
 // Visar detaljerad information om ett ord, inklusive uttal, betydelser och ljud.
 // Hanterar visning av favoritikoner och ger möjlighet att expandera eller kollapsa texten.
 
-import React, { useState, useRef, useEffect } from 'react';
-import WordHeader from './WordHeader';
-import WordMeaning from './WordMeaning';
-import WordAudio from './WordAudio';
-import { Word } from '../../constants/types';
+import React, { useState, useRef, useEffect } from "react";
+import WordHeader from "./WordHeader";
+import WordMeaning from "./WordMeaning";
+import WordAudio from "./WordAudio";
+import { Word } from "../../constants/types";
 
 interface WordCardProps {
   wordData: Word;
@@ -47,7 +47,7 @@ const WordCard: React.FC<WordCardProps> = ({
     <div
       data-testid="search-result"
       className={`relative mb-8 rounded-lg border border-customDark bg-white p-6 shadow-lg transition-all duration-300 dark:border-customYellow dark:bg-customDark ${
-        isExpanded ? 'max-h-full' : 'max-h-68 overflow-hidden'
+        isExpanded ? "max-h-full" : "max-h-68 overflow-hidden"
       }`}
     >
       <WordHeader
@@ -67,7 +67,7 @@ const WordCard: React.FC<WordCardProps> = ({
 
       <div
         ref={contentRef}
-        className={`mt-4 ${isExpanded ? '' : 'line-clamp-2'} transition-all duration-300`}
+        className={`mt-4 ${isExpanded ? "" : "line-clamp-2"} transition-all duration-300`}
       >
         {wordData.meanings.map((meaning, index) => (
           <WordMeaning key={index} meaning={meaning} />
@@ -94,8 +94,8 @@ const WordCard: React.FC<WordCardProps> = ({
               strokeLinejoin="round"
               d={`${
                 isExpanded
-                  ? 'M15.75 9L12 5.25 8.25 9m7.5 6L12 18.75 8.25 15'
-                  : 'M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9'
+                  ? "M15.75 9L12 5.25 8.25 9m7.5 6L12 18.75 8.25 15"
+                  : "M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
               }`}
             />
           </svg>

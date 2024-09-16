@@ -1,7 +1,7 @@
 // Komponent som visar en ikon för att lägga till eller ta bort ett ord från favoriter.
 // Om ordet är favorit visas en fylld hjärta, annars en tom hjärta.
 
-import React from 'react';
+import React from "react";
 
 interface FavoriteIconProps {
   isFavorite: boolean; // Indikerar om ordet är favorit
@@ -14,7 +14,7 @@ const FavoriteIcon: React.FC<FavoriteIconProps> = ({
 }) => {
   return (
     <div
-      data-testid={isFavorite ? 'remove-favorite-icon' : 'add-favorite-icon'}
+      data-testid={isFavorite ? "remove-favorite-icon" : "add-favorite-icon"}
       onClick={onToggleFavorite} // Hanterar klick för att toggla favoritstatus
     >
       {isFavorite ? (

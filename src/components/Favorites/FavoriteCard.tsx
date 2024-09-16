@@ -1,7 +1,7 @@
 // Komponent för att visa ett favoritkort med ordinformation och en knapp för att ta bort det från favoriter.
 
-import { Word } from '../../constants/types';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { Word } from "../../constants/types";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 interface FavoriteCardProps {
   word: Word; // Ordet som visas i favoritkortet

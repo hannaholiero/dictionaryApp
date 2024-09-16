@@ -1,38 +1,79 @@
-//
-// .eslint.config.js
-import eslintPluginReact from 'eslint-plugin-react';
-import eslintPluginPrettier from 'eslint-plugin-prettier';
-import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin';
-import typescriptEslintParser from '@typescript-eslint/parser';
+import globals from "globals";
+import jsPlugin from "@eslint/js";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import reactPlugin from "eslint-plugin-react";
+import prettierPlugin from "eslint-plugin-prettier"; // För att integrera Prettier i ESLint
 
-// Exporterar ESLint-konfigurationen
 export default [
   {
-    files: ['**/*.ts', '**/*.tsx'], // Gäller för TypeScript-filer
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    ignores: [
+      "vite.config.ts",
+      "postcss.config.js",
+      "eslint.config.js",
+      ".dependency-cruiser.cjs",
+      "tests/setup.js",
+      "src/styles/tailwind.config.js",
+    ],
     languageOptions: {
-      parser: typescriptEslintParser, // Använd TypeScript ESLint-parser
+      parser: tsParser,
       parserOptions: {
-        project: './tsconfig.json', // Se till att denna väg är korrekt och pekar på din tsconfig
+        ecmaVersion: 2020,
+        sourceType: "module",
+        ecmaFeatures: {
+          jsx: true,
+        },
+        project: "./tsconfig.json",
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.jest, // Om du använder Jest för tester
       },
     },
+  },
+  {
     plugins: {
-      '@typescript-eslint': typescriptEslintPlugin,
-      react: eslintPluginReact,
-      prettier: eslintPluginPrettier,
+      js: jsPlugin,
     },
     rules: {
-      // Integrerar Prettier med ESLint, felar om Prettier-regler bryts
-      'prettier/prettier': 'error',
-      // Lägg till andra ESLint-specifika regler här
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { argsIgnorePattern: '^_' },
+      ...jsPlugin.configs.recommended.rules,
+    },
+  },
+  {
+    plugins: {
+      "@typescript-eslint": tsPlugin,
+    },
+    rules: {
+      ...tsPlugin.configs.recommended.rules,
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_" },
       ],
+    },
+  },
+  {
+    plugins: {
+      react: reactPlugin,
     },
     settings: {
       react: {
-        version: 'detect', // Automatiskt upptäcka React-version
+        version: "detect",
       },
+    },
+    rules: {
+      ...reactPlugin.configs.recommended.rules,
+      "react/react-in-jsx-scope": "off", // Ignorera React-importering i moderna projekt
+      "react/prop-types": "off", // Ignorera prop-types i TS-projekt
+    },
+  },
+  {
+    plugins: {
+      prettier: prettierPlugin,
+    },
+    rules: {
+      ...prettierPlugin.configs.recommended.rules,
+      "prettier/prettier": "error", // Hanterar Prettier-regler som ESLint-fel
     },
   },
 ];

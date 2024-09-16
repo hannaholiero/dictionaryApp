@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // Visar ordets betydelser, inklusive ordklass, definitioner och exempel
 

@@ -1,6 +1,6 @@
-import React from 'react';
-import FavoriteCard from './FavoriteCard';
-import { Word } from '../../constants/types';
+import React from "react";
+import FavoriteCard from "./FavoriteCard";
+import { Word } from "../../constants/types";
 
 // Komponent för att visa en lista med favoritord.
 // Visar meddelande om inga favoriter finns och renderar en lista med favoritkort om det finns några.

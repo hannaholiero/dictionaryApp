@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent } from "react";
 
 interface SearchFieldProps {
   onSearch: (query: string) => void; // Funktion som triggas när användaren skickar in en sökning
@@ -6,7 +6,7 @@ interface SearchFieldProps {
 
 // SearchField-komponenten ansvarar för att hantera användarens sökningar
 const SearchField: React.FC<SearchFieldProps> = ({ onSearch }) => {
-  const [query, setQuery] = useState(''); // State för att hålla koll på vad användaren skriver i sökfältet
+  const [query, setQuery] = useState(""); // State för att hålla koll på vad användaren skriver i sökfältet
 
   // Hanterar när formuläret skickas in
   const handleSubmit = (e: FormEvent) => {

@@ -1,6 +1,6 @@
 // apiService.ts
-import axios from 'axios';
-import { Word } from './types';
+import axios from "axios";
+import { Word } from "./types";
 
 export const fetchWordData = async (query: string): Promise<Word | null> => {
   try {
@@ -14,7 +14,7 @@ export const fetchWordData = async (query: string): Promise<Word | null> => {
 
     return null; // Returnera null om inget ord hittas
   } catch (error) {
-    console.error('Error fetching word data:', error);
-    throw new Error('Failed to fetch data'); // Specifik felhantering
+    console.error("Error fetching word data:", error);
+    throw new Error("Failed to fetch data"); // Specifik felhantering
   }
 };

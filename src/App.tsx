@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import SearchField from './components/SearchField'; // Komponent för sökfältet
-import WordCard from './components/SearchResult/WordCard'; // Komponent som visar information om det hittade ordet
-import Sidebar from './components/Sidebar'; // Komponent för sidopanelen med favoriter
-import { Word } from './constants/types'; // Typdefinitioner för orddata
-import { ThemeProvider } from './constants/ThemeContext'; // Hanterar tema (ljus/mörk) för appen
-import ThemeSwitch from './components/ThemeSwitch'; // Komponent för att byta tema (ljus/mörk)
-import { fetchWordData } from './constants/apiService'; // Funktion för att hämta orddata från API
+import { useState, useEffect } from "react";
+import SearchField from "./components/SearchField"; // Komponent för sökfältet
+import WordCard from "./components/SearchResult/WordCard"; // Komponent som visar information om det hittade ordet
+import Sidebar from "./components/Sidebar"; // Komponent för sidopanelen med favoriter
+import { Word } from "./constants/types"; // Typdefinitioner för orddata
+import { ThemeProvider } from "./constants/ThemeContext"; // Hanterar tema (ljus/mörk) för appen
+import ThemeSwitch from "./components/ThemeSwitch"; // Komponent för att byta tema (ljus/mörk)
+import { fetchWordData } from "./constants/apiService"; // Funktion för att hämta orddata från API
 
 // Huvudkomponent för applikationen
 const App: React.FC = () => {
@@ -13,21 +13,21 @@ const App: React.FC = () => {
   const [wordData, setWordData] = useState<Word | null>(null); // State för det sökta ordets data
   const [favorites, setFavorites] = useState<Word[]>(() => {
     // State för favoriter, hämtas från sessionStorage vid sidladdning
-    const savedFavorites = sessionStorage.getItem('favorites');
+    const savedFavorites = sessionStorage.getItem("favorites");
     return savedFavorites ? JSON.parse(savedFavorites) : []; // Om inga favoriter finns, börja med tom lista
   });
-  const [error, setError] = useState(''); // State för felmeddelanden
+  const [error, setError] = useState(""); // State för felmeddelanden
 
   // Spara favoriter i sessionStorage varje gång de uppdateras
   useEffect(() => {
-    sessionStorage.setItem('favorites', JSON.stringify(favorites));
+    sessionStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
   // Funktion för att hantera sökning av ett ord
   const handleSearch = async (query: string) => {
     if (!query.trim()) {
       // Kontrollera att användaren har skrivit något
-      setError('Sökfältet tomt, försök igen!');
+      setError("Sökfältet tomt, försök igen!");
       setWordData(null);
       return;
     }
@@ -37,15 +37,15 @@ const App: React.FC = () => {
 
       if (data) {
         setWordData(data); // Om data finns, uppdatera state och rensa eventuella felmeddelanden
-        setError('');
+        setError("");
       } else {
         // Om inget hittas, visa ett felmeddelande
-        setError('Inga ord hittades');
+        setError("Inga ord hittades");
         setWordData(null);
       }
     } catch (_) {
       // Fångar fel som kan inträffa vid API-anropet
-      setError('Ett fel uppstod, försök igen.');
+      setError("Ett fel uppstod, försök igen.");
       setWordData(null);
     }
   };
@@ -76,9 +76,9 @@ const App: React.FC = () => {
       <div className="relative flex flex-col items-center">
         <main className="mx-auto flex flex-1 flex-col items-center p-4 lg:max-w-2xl">
           <div className="w-full max-w-lg">
-            <SearchField onSearch={handleSearch} />{' '}
+            <SearchField onSearch={handleSearch} />{" "}
             {/* Sökfält för att leta upp ord */}
-            {error && <p className="mt-2 text-red-500">{error}</p>}{' '}
+            {error && <p className="mt-2 text-red-500">{error}</p>}{" "}
             {/* Visar felmeddelande vid behov */}
           </div>
 

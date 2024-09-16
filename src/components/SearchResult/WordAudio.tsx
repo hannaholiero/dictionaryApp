@@ -1,7 +1,7 @@
 // Komponent för att spela upp ljud för ordets uttal.
 // Skapar och spelar upp ett ljudobjekt när knappen trycks.
 
-import React from 'react';
+import React from "react";
 
 interface WordAudioProps {
   audio?: string; // URL till ljudfilen för uttal
@@ -14,7 +14,7 @@ const WordAudio: React.FC<WordAudioProps> = ({ audio }) => {
       const audioElement = new Audio(audio);
       audioElement
         .play()
-        .catch((error) => console.error('Error playing audio:', error)); // Hanterar fel vid uppspelning
+        .catch((error) => console.error("Error playing audio:", error)); // Hanterar fel vid uppspelning
     }
   };
 
