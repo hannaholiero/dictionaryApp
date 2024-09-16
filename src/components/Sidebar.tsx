@@ -1,13 +1,13 @@
-import { useState } from "react"
-import FavoriteList from "./Favorites/FavoriteList"
-import { Word } from "../constants/types"
-import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline"
+import { useState } from "react";
+import FavoriteList from "./Favorites/FavoriteList";
+import { Word } from "../constants/types";
+import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
 
 // Definierar de props som Sidebar-komponenten tar emot
 interface SidebarProps {
-  favorites: Word[] // Array av favoritord
-  onRemoveFavorite: (word: string) => void // Funktion för att ta bort ett ord från favoriter
-  onWordClick: (word: Word) => void // Funktion som triggas när användaren klickar på ett ord i favoriter
+  favorites: Word[]; // Array av favoritord
+  onRemoveFavorite: (word: string) => void; // Funktion för att ta bort ett ord från favoriter
+  onWordClick: (word: Word) => void; // Funktion som triggas när användaren klickar på ett ord i favoriter
 }
 
 // Sidebar-komponenten hanterar sidpanelen som visar favoritord
@@ -16,7 +16,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   onRemoveFavorite,
   onWordClick,
 }) => {
-  const [isOpen, setIsOpen] = useState(false) // State för att hantera om sidopanelen är öppen eller stängd
+  const [isOpen, setIsOpen] = useState(false); // State för att hantera om sidopanelen är öppen eller stängd
 
   return (
     <>
@@ -57,7 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         />
       </aside>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
